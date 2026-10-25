@@ -1,0 +1,10 @@
+{
+  "name": "session-timeline",
+  "version": "0.1.0",
+  "description": "把 Claude Code 会话画成时间线网页：/timeline 一条命令把当前会话导出成自包含的 HTML，主线、子智能体支线、工具调用、用时一目了然。",
+  "author": { "name": "jianglong-nie" },
+  "keywords": ["claude-code", "session", "timeline", "visualization", "subagent"],
+  "license": "MIT",
+  "repository": "https://github.com/jianglong-nie/claude-session-timeline",
+  "homepage": "https://github.com/jianglong-nie/claude-session-timeline"
+}

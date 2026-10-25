@@ -1,0 +1,12 @@
+{
+  "name": "session-timeline",
+  "owner": { "name": "jianglong-nie" },
+  "description": "session-timeline 插件的发布源：把 Claude Code 会话画成时间线网页。",
+  "plugins": [
+    {
+      "name": "session-timeline",
+      "source": "./",
+      "description": "把 Claude Code 会话画成时间线网页：/timeline 导出当前会话为自包含 HTML。"
+    }
+  ]
+}

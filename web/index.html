@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Session Timeline</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Markdown 渲染 + 清洗，本地副本（导出的单文件会把它们内联进去） -->
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/purify.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <span class="brand">Session Timeline</span>
+    <span id="static-note" class="static-note" hidden></span>
+    <label>工作目录 <input id="cwd" spellcheck="false" placeholder="/path/to/demo-repo"></label>
+    <span id="session-info"></span>
+    <button id="new-session" class="btn" title="忘记当前 session_id，下一条提示词开新会话">新会话</button>
+    <label class="chk" title="关掉后只显示助手文本、工具调用和结果；system 事件、思考占位、服务器事件隐藏"><input type="checkbox" id="show-all"> 显示全部事件</label>
+    <button id="reload-page" class="btn" title="整页重新载入（跟随模式下页面本来就会每秒追加新内容，这个按钮用于从头重读）">重新载入</button>
+    <button id="toggle-outline" class="btn only-narrow">大纲</button>
+  </header>
+
+  <div class="sessionbar">
+    <span class="sessionbar-title">会话存档</span>
+    <label>项目 <select id="project"><option value="">加载中…</option></select></label>
+    <label>会话 <select id="session"></select></label>
+    <button id="load-session" class="btn" title="把这个会话的存档文件转换成事件流一次性显示出来">载入</button>
+    <label class="chk" title="载入后持续读取文件末尾：另开一个 Claude Code 会话，就能在这里实时看到它的每一步"><input type="checkbox" id="follow"> 实时跟随</label>
+    <button id="refresh-sessions" class="btn" title="重新扫描 ~/.claude/projects">刷新</button>
+    <span id="session-hint"></span>
+  </div>
+
+  <main class="layout">
+    <section id="conversation" class="conversation">
+      <div id="empty" class="empty">还没有内容。在上方选一个 Claude Code 会话存档点"载入"，或在下方输入提示词点"运行"，或选一个已保存的事件文件回放。</div>
+    </section>
+    <aside id="outline" class="outline">
+      <div class="outline-title">大纲</div>
+      <div id="outline-body"></div>
+    </aside>
+  </main>
+
+  <footer class="composer">
+    <textarea id="prompt" placeholder="输入请求…（Enter 发送，Shift+Enter 换行）"></textarea>
+    <div class="composer-actions">
+      <select id="replay" title="开发时用录制文件重放，免费且即时">
+        <option value="">真实运行</option>
+      </select>
+      <button id="run" class="btn primary">运行</button>
+      <button id="stop" class="btn" hidden>停止</button>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

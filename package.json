@@ -1,0 +1,14 @@
+{
+  "name": "session-timeline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "把 Claude Code 会话画成时间线网页：node scripts/export.mjs <session-id> 导出单文件 HTML；node server.js 启动开发服务器",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/timeline.test.js",
+    "export": "node scripts/export.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}
